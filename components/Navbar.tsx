@@ -7,7 +7,7 @@ export default function Navbar() {
       <Link href="/about" className="hover:underline">About</Link>
       <Link href="/marketplace" className="hover:underline">Marketplace</Link>
       <Link href="/developers" className="hover:underline">For Developers</Link>
-      <Link href="/businesses" className="hover:underline">For Businesses</Link>
+      <Link href="/business" className="hover:underline">For Businesses</Link>
       <Link href="/components" className="hover:underline">Components</Link>
       <Link href="/checkout" className="hover:underline">Checkout</Link>
       <Link href="/login" className="ml-auto hover:underline">Log in</Link>
