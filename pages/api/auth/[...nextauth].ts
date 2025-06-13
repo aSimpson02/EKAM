@@ -1,6 +1,10 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
+const users = [
+  { id: "1", email: "anniesimps2000@gmail.com", password: "password123" },
+];
+
 export default NextAuth({
   providers: [
     CredentialsProvider({
@@ -10,20 +14,14 @@ export default NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        // Replace with your real user check logic
-        if (credentials?.email === "admin@ekam.ai" && credentials.password === "secure123") {
-          return { id: "1", name: "Admin", email: "admin@ekam.ai" };
-        }
+        const user = users.find(
+          (u) => u.email === credentials?.email && u.password === credentials?.password
+        );
+
+        if (user) return user;
         return null;
       },
     }),
   ],
-  pages: {
-    signIn: '/login',
-    error: '/login',
-  },
-  session: {
-    strategy: "jwt",
-  },
   secret: process.env.NEXTAUTH_SECRET,
 });
