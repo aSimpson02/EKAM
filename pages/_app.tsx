@@ -1,14 +1,19 @@
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
+import { SessionProvider } from 'next-auth/react';
 import Navbar from '@/components/Navbar';
-import { CartProvider } from '../contexts/CartContext';
+import { CartProvider } from '@/contexts/CartContext';
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
-    <CartProvider>
-      <Navbar />
-      <Component {...pageProps} />
-    </CartProvider>
+    <SessionProvider session={session}>
+      <CartProvider>
+        <Navbar />
+        <main className="bg-black text-white min-h-screen">
+          <Component {...pageProps} />
+        </main>
+      </CartProvider>
+    </SessionProvider>
   );
 }
 

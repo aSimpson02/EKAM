@@ -1,11 +1,16 @@
+'use client';
+
 import Link from 'next/link';
+import { signOut, useSession } from 'next-auth/react';
 import { useCart } from '@/contexts/CartContext';
 
 export default function Navbar() {
+  const { data: session } = useSession();
   const { totalItems } = useCart();
 
   return (
-    <nav className="bg-black text-white px-6 py-4 flex flex-wrap gap-6 items-center justify-between">
+    <nav className="bg-black text-white px-6 py-4 flex flex-wrap justify-between items-center">
+      {/* Left nav */}
       <div className="flex gap-6 flex-wrap items-center">
         <Link href="/" className="hover:underline">Home</Link>
         <Link href="/about" className="hover:underline">About</Link>
@@ -14,17 +19,36 @@ export default function Navbar() {
         <Link href="/businesses" className="hover:underline">For Businesses</Link>
         <Link href="/components" className="hover:underline">Components</Link>
       </div>
+
+      {/* Right nav */}
       <div className="flex items-center gap-4">
-        <Link href="/checkout" className="relative">
-          <span className="hover:underline">🛒</span>
+        {/* Cart icon */}
+        <Link href="/checkout" className="relative hover:underline">
+          🛒
           {totalItems > 0 && (
             <span className="absolute -top-2 -right-3 bg-white text-black text-xs font-bold px-2 py-0.5 rounded-full">
               {totalItems}
             </span>
           )}
         </Link>
-        <Link href="/login" className="hover:underline">Log in</Link>
-        <Link href="/signup" className="hover:underline">Sign up</Link>
+
+        {/* Auth buttons */}
+        {session ? (
+          <>
+            <Link href="/dashboard" className="hover:underline">Dashboard</Link>
+            <button
+              onClick={() => signOut()}
+              className="hover:underline text-sm"
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link href="/login" className="hover:underline">Log in</Link>
+            <Link href="/signup" className="hover:underline">Sign up</Link>
+          </>
+        )}
       </div>
     </nav>
   );
