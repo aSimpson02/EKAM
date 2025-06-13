@@ -1,4 +1,8 @@
+import { useCart } from '@/contexts/CartContext';
+
 export default function Marketplace() {
+  const { addToCart } = useCart();
+
   return (
     <div className="bg-black text-white px-6 md:px-20 py-12 min-h-screen">
       {/* Hero Section */}
@@ -41,7 +45,12 @@ export default function Marketplace() {
           <p className="text-sm mb-4">★ 4.8</p>
           <div className="flex gap-2">
             <button className="border border-gray-600 px-4 py-2 rounded-md">View Details</button>
-            <button className="bg-white text-black px-4 py-2 rounded-md">Add to Cart</button>
+            <button
+              onClick={() => addToCart({ name: 'SentimentAnalyzer Pro', price: 299 })}
+              className="bg-white text-black px-4 py-2 rounded-md"
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
 
@@ -58,7 +67,12 @@ export default function Marketplace() {
           <p className="text-sm mb-4">★ 4.9</p>
           <div className="flex gap-2">
             <button className="border border-gray-600 px-4 py-2 rounded-md">View Details</button>
-            <button className="bg-white text-black px-4 py-2 rounded-md">Add to Cart</button>
+            <button
+              onClick={() => addToCart({ name: 'MedicalVision API', price: 499 })}
+              className="bg-white text-black px-4 py-2 rounded-md"
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
 
@@ -75,7 +89,12 @@ export default function Marketplace() {
           <p className="text-sm mb-4">★ 4.7</p>
           <div className="flex gap-2">
             <button className="border border-gray-600 px-4 py-2 rounded-md">View Details</button>
-            <button className="bg-white text-black px-4 py-2 rounded-md">Add to Cart</button>
+            <button
+              onClick={() => addToCart({ name: 'FinancialForecaster', price: 399 })}
+              className="bg-white text-black px-4 py-2 rounded-md"
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
       </section>
