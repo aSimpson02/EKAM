@@ -19,7 +19,10 @@ export default function CheckoutPage() {
 
     const data = await res.json();
     const stripe = await stripePromise;
-    stripe?.redirectToCheckout({ url: data.url });
+
+    if (stripe) {
+      await stripe.redirectToCheckout({ sessionId: data.id });
+    }
   };
 
   return (
@@ -88,4 +91,3 @@ export default function CheckoutPage() {
     </div>
   );
 }
-

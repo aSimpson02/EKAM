@@ -13,7 +13,6 @@ export default function Navbar() {
         <Link href="/developers" className="hover:underline">For Developers</Link>
         <Link href="/businesses" className="hover:underline">For Businesses</Link>
         <Link href="/components" className="hover:underline">Components</Link>
-        <Link href="/checkout" className="hover:underline">Checkout</Link>
       </div>
       <div className="flex items-center gap-4">
         <Link href="/checkout" className="relative">
