@@ -13,103 +13,121 @@ const geistMono = Geist_Mono({
 
 export default function Home() {
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
-    >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              pages/index.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="bg-black text-white min-h-screen">
+      {/* Hero Section */}
+      <section className="px-6 md:px-20 py-24 text-center">
+        <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-4">
+          Discover the Future<br /> of AI Solutions
+        </h1>
+        <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-8">
+          Ekam brings cutting-edge AI tools and solutions to transform your business. Explore our marketplace of curated AI solutions designed for developers and businesses alike.
+        </p>
+        <div className="flex justify-center gap-4">
+          <a href="/marketplace" className="bg-white text-black font-semibold px-6 py-3 rounded hover:bg-gray-200">Explore Marketplace</a>
+          <a href="/solutions" className="border border-white text-white font-semibold px-6 py-3 rounded hover:bg-gray-800">View Solutions</a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="bg-[#0d0d0d] px-6 md:px-20 py-20">
+        <h2 className="text-4xl font-bold text-center mb-12">Why Choose Ekam</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            ['High-Performance AI', 'Access state-of-the-art AI models and tools optimized for performance and efficiency.'],
+            ['Enterprise Security', 'All solutions meet rigorous security standards to protect your data and applications.'],
+            ['Analytics & Insights', 'Gain valuable insights from your data with advanced analytics and visualization tools.'],
+            ['Developer-Friendly', 'Comprehensive documentation, SDKs, and APIs designed for seamless integration.'],
+            ['Community Support', 'Join a thriving community of developers and businesses sharing knowledge and best practices.'],
+            ['Global Reach', 'Deploy AI solutions globally with our distributed infrastructure and localization support.'],
+          ].map(([title, desc]) => (
+            <div key={title} className="bg-gray-900 border border-gray-800 p-6 rounded-xl">
+              <h3 className="text-xl font-semibold mb-2">{title}</h3>
+              <p className="text-gray-400 text-sm">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Featured Solutions */}
+      <section className="px-6 md:px-20 py-20">
+        <h2 className="text-4xl font-bold text-center mb-12">Featured Solutions</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            {
+              tag: 'Natural Language Processing',
+              title: 'Text Synthesis Pro',
+              desc: 'Advanced natural language processing for content generation and analysis.',
+              link: '/solutions/text-synthesis-pro'
+            },
+            {
+              tag: 'Healthcare',
+              title: 'MedVision AI',
+              desc: 'Medical imaging analysis and diagnostics powered by computer vision.',
+              link: '/solutions/medvision-ai'
+            },
+            {
+              tag: 'Development Tools',
+              title: 'CodeAssist AI',
+              desc: 'Intelligent code completion and refactoring for developers.',
+              link: '/solutions/codeassist-ai'
+            }
+          ].map(({ tag, title, desc, link }) => (
+            <div key={title} className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+              <div className="text-sm text-white bg-gray-700 px-2 py-1 inline-block mb-2 rounded-full">{tag}</div>
+              <h3 className="text-xl font-semibold mb-2">{title}</h3>
+              <p className="text-gray-400 text-sm mb-4">{desc}</p>
+              <a href={link} className="text-white underline hover:text-gray-300">Learn more →</a>
+            </div>
+          ))}
+        </div>
+        <div className="text-center mt-10">
+          <a href="/solutions" className="bg-white text-black font-semibold px-6 py-3 rounded hover:bg-gray-200">View All Solutions</a>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="bg-[#0d0d0d] px-6 md:px-20 py-20">
+        <h2 className="text-4xl font-bold text-center mb-12">What Our Clients Say</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            {
+              name: 'Sarah Johnson',
+              role: 'Marketing Director, TechGrowth Inc.',
+              quote: 'Ekam’s AI tools have revolutionized our content creation process, reducing time-to-market by 60%.'
+            },
+            {
+              name: 'Michael Chen',
+              role: 'Lead Developer, InnovateSoft',
+              quote: 'As a developer, I appreciate the well-documented APIs and the robust community support around Ekam’s solutions.'
+            },
+            {
+              name: 'Dr. Emily Rodriguez',
+              role: 'Chief Medical Officer, HealthFirst Network',
+              quote: 'The healthcare AI solutions from Ekam have significantly improved our diagnostic accuracy and patient outcomes.'
+            },
+          ].map(({ name, role, quote }) => (
+            <div key={name} className="bg-gray-900 border border-gray-800 p-6 rounded-xl">
+              <p className="italic text-gray-300 mb-4">"{quote}"</p>
+              <div className="text-sm text-gray-400">
+                <strong className="text-white block">{name}</strong>
+                {role}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="px-6 md:px-20 py-20 text-center">
+        <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Business with AI?</h2>
+        <p className="text-gray-400 mb-8">
+          Join thousands of businesses and developers who are leveraging Ekam’s AI solutions to innovate and grow.
+        </p>
+        <div className="flex justify-center gap-4">
+          <a href="/solutions" className="bg-white text-black font-semibold px-6 py-3 rounded hover:bg-gray-200">Explore Solutions</a>
+          <a href="/signup" className="border border-white text-white font-semibold px-6 py-3 rounded hover:bg-gray-800">Sign Up Free</a>
+        </div>
+      </section>
     </div>
   );
 }
