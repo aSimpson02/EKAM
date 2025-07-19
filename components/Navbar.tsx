@@ -31,6 +31,8 @@ export default function Navbar() {
         <Link href="/developers" className="hover:underline">For Developers</Link>
         <Link href="/business" className="hover:underline">For Businesses</Link>
         <Link href="/components" className="hover:underline">Components</Link>
+        {/* <Link href="/solutions" className="hover:underline">Solutions</Link>
+        <Link href="/start-listing" className="hover:underline">Start Listing</Link> */}
       </div>
 
       {/* Right navigation */}
