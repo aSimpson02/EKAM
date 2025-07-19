@@ -1,3 +1,7 @@
+'use client';
+
+import Link from 'next/link';
+
 export default function CancelPage() {
   return (
     <div className="bg-black text-white min-h-screen flex items-center justify-center text-center px-4">
@@ -6,12 +10,11 @@ export default function CancelPage() {
         <p className="text-gray-400 mb-6">
           Your payment was not completed. Please try again or choose a different method.
         </p>
-        <a
-          href="/checkout"
-          className="inline-block bg-white text-black px-6 py-3 rounded-md font-semibold hover:bg-gray-200 transition"
-        >
-          Return to Checkout
-        </a>
+        <Link href="/checkout">
+          <span className="inline-block bg-white text-black px-6 py-3 rounded-md font-semibold hover:bg-gray-200 transition cursor-pointer">
+            Return to Checkout
+          </span>
+        </Link>
       </div>
     </div>
   );

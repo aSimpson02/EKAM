@@ -1,3 +1,5 @@
+'use client';
+
 import { useCart } from '@/contexts/CartContext';
 import { loadStripe } from '@stripe/stripe-js';
 import { FormEvent } from 'react';
@@ -8,7 +10,7 @@ export default function CheckoutPage() {
   const { cartItems, removeFromCart } = useCart();
   const total = cartItems.reduce((sum, item) => sum + item.price, 0);
 
-  const handleCheckout = async (event: FormEvent) => {
+  const handleCheckout = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const res = await fetch('/api/create-checkout-session', {
@@ -17,10 +19,10 @@ export default function CheckoutPage() {
       body: JSON.stringify({ items: cartItems }),
     });
 
-    const data = await res.json();
+    const data: { id: string } = await res.json();
     const stripe = await stripePromise;
 
-    if (stripe) {
+    if (stripe && data?.id) {
       await stripe.redirectToCheckout({ sessionId: data.id });
     }
   };
@@ -28,7 +30,9 @@ export default function CheckoutPage() {
   return (
     <div className="bg-[#0b1120] text-white px-6 md:px-20 py-12 min-h-screen">
       <h1 className="text-5xl font-extrabold mb-4">Checkout</h1>
-      <p className="text-gray-400 mb-10">Secure payment processing for your selected AI tools.</p>
+      <p className="text-gray-400 mb-10">
+        Secure payment processing for your selected AI tools.
+      </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* Order Summary */}
@@ -38,7 +42,10 @@ export default function CheckoutPage() {
             <p className="text-gray-500">Your bag is empty.</p>
           ) : (
             cartItems.map((item, i) => (
-              <div key={i} className="flex justify-between items-center border-b border-gray-800 pb-4">
+              <div
+                key={i}
+                className="flex justify-between items-center border-b border-gray-800 pb-4"
+              >
                 <div>
                   <h3 className="font-semibold">{item.name}</h3>
                   <p className="text-sm text-gray-400">${item.price}</p>
@@ -52,7 +59,6 @@ export default function CheckoutPage() {
               </div>
             ))
           )}
-
           <div className="flex justify-between pt-4 border-t border-gray-700 font-semibold text-lg">
             <span>Total</span>
             <span>${total}</span>
