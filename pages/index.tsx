@@ -87,7 +87,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonials
       <section className="bg-[#0d1528] px-6 md:px-20 py-20">
         <h2 className="text-4xl font-bold text-center mb-12">What Our Clients Say</h2>
         <div className="grid md:grid-cols-3 gap-6">
@@ -117,7 +117,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <section className="px-6 md:px-20 py-20 text-center">

@@ -1,6 +1,6 @@
 export default function AboutPage() {
   return (
-    <div className="bg-black text-white px-6 py-16">
+    <div className="bg-[#0b1120] text-white px-6 py-16">
       {/* ABOUT US */}
       <section className="max-w-4xl mx-auto text-center mb-16">
         <h1 className="text-4xl font-bold mb-6">About Us</h1>

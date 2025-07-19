@@ -10,20 +10,21 @@ export default function Navbar() {
   const { totalItems } = useCart();
 
   return (
-    <nav className="bg-black text-white px-6 py-4 flex flex-wrap justify-between items-center">
-      {/* Left nav */}
+    <nav className="bg-[#1C2B41] text-white px-6 py-4 flex flex-wrap justify-between items-center border-b border-gray-800">
+      {/* Left navigation */}
       <div className="flex gap-6 flex-wrap items-center">
-        {/* Logo and brand name */}
-        <Link href="/" className="flex items-center gap-2">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/logo.png"
+            src="/assets/final-logo.png"
             alt="EKAM Logo"
-            width={24}
-            height={24}
+            width={140}
+            height={40}
+            priority
           />
-          <span className="font-bold text-white text-lg">EKAM</span>
         </Link>
 
+        {/* Navigation links */}
         <Link href="/" className="hover:underline">Home</Link>
         <Link href="/about" className="hover:underline">About</Link>
         <Link href="/marketplace" className="hover:underline">Marketplace</Link>
@@ -32,10 +33,10 @@ export default function Navbar() {
         <Link href="/components" className="hover:underline">Components</Link>
       </div>
 
-      {/* Right nav */}
+      {/* Right navigation */}
       <div className="flex items-center gap-4">
-        {/* Cart icon */}
-        <Link href="/checkout" className="relative hover:underline">
+        {/* Cart icon with badge */}
+        <Link href="/checkout" className="relative hover:underline text-xl">
           🛒
           {totalItems > 0 && (
             <span className="absolute -top-2 -right-3 bg-white text-black text-xs font-bold px-2 py-0.5 rounded-full">
@@ -44,7 +45,7 @@ export default function Navbar() {
           )}
         </Link>
 
-        {/* Authentication */}
+        {/* Auth buttons */}
         {session ? (
           <>
             <Link href="/dashboard" className="hover:underline">Dashboard</Link>
@@ -65,3 +66,4 @@ export default function Navbar() {
     </nav>
   );
 }
+
