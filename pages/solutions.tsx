@@ -1,6 +1,7 @@
 'use client';
 
 import React from "react";
+import Link from "next/link";
 
 export default function SolutionsPage() {
   return (
@@ -48,11 +49,11 @@ export default function SolutionsPage() {
         <p className="text-gray-300 max-w-xl mx-auto mb-8">
           Our AI solutions are built with enterprise-grade quality, security, and scalability in mind.
         </p>
-        <a href="/marketplace">
+        <Link href="/marketplace">
           <button className="bg-white text-black px-6 py-2 rounded-md font-semibold hover:bg-gray-200 transition">
             Explore the Marketplace
           </button>
-        </a>
+        </Link>
       </section>
     </div>
   );
