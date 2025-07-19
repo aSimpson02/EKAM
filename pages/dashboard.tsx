@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-// import { supabase } from '@/lib/supabaseClient';
 import { supabase } from '../lib/supabaseClient';
-
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -60,4 +58,3 @@ export default function DashboardPage() {
     </div>
   );
 }
-

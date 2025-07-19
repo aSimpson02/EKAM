@@ -31,7 +31,9 @@ export default function SignupPage() {
         className="bg-gray-900 p-8 rounded-xl w-full max-w-sm border border-gray-800 shadow-xl"
       >
         <h1 className="text-3xl font-extrabold mb-6 text-center">Sign Up</h1>
-        <p className="text-gray-400 mb-6 text-center">Create your EKAM account below.</p>
+        <p className="text-gray-300 mb-6 text-center text-sm">
+          Create your EKAM account below.
+        </p>
 
         {error && <p className="text-red-500 text-sm mb-4 text-center">{error}</p>}
         {successMsg && <p className="text-green-500 text-sm mb-4 text-center">{successMsg}</p>}
@@ -41,7 +43,7 @@ export default function SignupPage() {
           placeholder="Email"
           value={email}
           onChange={e => setEmail(e.target.value)}
-          className="w-full mb-4 p-3 bg-gray-800 border border-gray-700 rounded text-white"
+          className="w-full mb-4 p-3 bg-gray-800 border border-gray-700 rounded text-white focus:outline-none"
           required
         />
         <input
@@ -49,7 +51,7 @@ export default function SignupPage() {
           placeholder="Password"
           value={password}
           onChange={e => setPassword(e.target.value)}
-          className="w-full mb-6 p-3 bg-gray-800 border border-gray-700 rounded text-white"
+          className="w-full mb-6 p-3 bg-gray-800 border border-gray-700 rounded text-white focus:outline-none"
           required
         />
 

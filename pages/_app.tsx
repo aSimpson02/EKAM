@@ -9,7 +9,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
     <SessionProvider session={session}>
       <CartProvider>
         <Navbar />
-        <main className="bg-black text-white min-h-screen">
+        <main className="bg-[#0b1120] text-white min-h-screen">
           <Component {...pageProps} />
         </main>
       </CartProvider>

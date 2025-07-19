@@ -26,7 +26,7 @@ export default function CheckoutPage() {
   };
 
   return (
-    <div className="bg-black text-white px-6 md:px-20 py-12 min-h-screen">
+    <div className="bg-[#0b1120] text-white px-6 md:px-20 py-12 min-h-screen">
       <h1 className="text-5xl font-extrabold mb-4">Checkout</h1>
       <p className="text-gray-400 mb-10">Secure payment processing for your selected AI tools.</p>
 

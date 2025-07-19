@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export default function Home() {
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-[#0b1120] text-white min-h-screen">
       {/* Hero Section */}
       <section className="px-6 md:px-20 py-24 text-center">
         <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-4">
@@ -31,7 +31,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="bg-[#0d0d0d] px-6 md:px-20 py-20">
+      <section className="bg-[#0d1528] px-6 md:px-20 py-20">
         <h2 className="text-4xl font-bold text-center mb-12">Why Choose Ekam</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {[
@@ -42,7 +42,7 @@ export default function Home() {
             ['Community Support', 'Join a thriving community of developers and businesses sharing knowledge and best practices.'],
             ['Global Reach', 'Deploy AI solutions globally with our distributed infrastructure and localization support.'],
           ].map(([title, desc]) => (
-            <div key={title} className="bg-gray-900 border border-gray-800 p-6 rounded-xl">
+            <div key={title} className="bg-[#111827] border border-[#1f2937] p-6 rounded-xl">
               <h3 className="text-xl font-semibold mb-2">{title}</h3>
               <p className="text-gray-400 text-sm">{desc}</p>
             </div>
@@ -74,7 +74,7 @@ export default function Home() {
               link: '/marketplace/codeassist-ai'
             }
           ].map(({ tag, title, desc, link }) => (
-            <div key={title} className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+            <div key={title} className="bg-[#111827] border border-[#1f2937] rounded-xl p-6">
               <div className="text-sm text-white bg-gray-700 px-2 py-1 inline-block mb-2 rounded-full">{tag}</div>
               <h3 className="text-xl font-semibold mb-2">{title}</h3>
               <p className="text-gray-400 text-sm mb-4">{desc}</p>
@@ -88,7 +88,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-[#0d0d0d] px-6 md:px-20 py-20">
+      <section className="bg-[#0d1528] px-6 md:px-20 py-20">
         <h2 className="text-4xl font-bold text-center mb-12">What Our Clients Say</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {[
@@ -108,7 +108,7 @@ export default function Home() {
               quote: 'The healthcare AI solutions from Ekam have significantly improved our diagnostic accuracy and patient outcomes.'
             },
           ].map(({ name, role, quote }) => (
-            <div key={name} className="bg-gray-900 border border-gray-800 p-6 rounded-xl">
+            <div key={name} className="bg-[#111827] border border-[#1f2937] p-6 rounded-xl">
               <p className="italic text-gray-300 mb-4">"{quote}"</p>
               <div className="text-sm text-gray-400">
                 <strong className="text-white block">{name}</strong>
