@@ -1,3 +1,5 @@
+'use client';
+
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 
@@ -23,8 +25,8 @@ export default function Home() {
           Ekam brings cutting-edge AI tools and solutions to transform your business. Explore our marketplace of curated AI solutions designed for developers and businesses alike.
         </p>
         <div className="flex justify-center gap-4">
-          <a href="/marketplace" className="bg-white text-black font-semibold px-6 py-3 rounded hover:bg-gray-200">Explore Marketplace</a>
-          <a href="/solutions" className="border border-white text-white font-semibold px-6 py-3 rounded hover:bg-gray-800">View Solutions</a>
+          <a href="/marketplace" className="bg-white text-black font-semibold px-6 py-3 rounded hover:bg-gray-200">Browse AI Tools</a>
+          <a href="/signup" className="border border-white text-white font-semibold px-6 py-3 rounded hover:bg-gray-800">Get Started Free</a>
         </div>
       </section>
 
@@ -50,26 +52,26 @@ export default function Home() {
 
       {/* Featured Solutions */}
       <section className="px-6 md:px-20 py-20">
-        <h2 className="text-4xl font-bold text-center mb-12">Featured Solutions</h2>
+        <h2 className="text-4xl font-bold text-center mb-12">Featured Marketplace Tools</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {[
             {
               tag: 'Natural Language Processing',
               title: 'Text Synthesis Pro',
               desc: 'Advanced natural language processing for content generation and analysis.',
-              link: '/solutions/text-synthesis-pro'
+              link: '/marketplace/text-synthesis-pro'
             },
             {
               tag: 'Healthcare',
               title: 'MedVision AI',
               desc: 'Medical imaging analysis and diagnostics powered by computer vision.',
-              link: '/solutions/medvision-ai'
+              link: '/marketplace/medvision-ai'
             },
             {
               tag: 'Development Tools',
               title: 'CodeAssist AI',
               desc: 'Intelligent code completion and refactoring for developers.',
-              link: '/solutions/codeassist-ai'
+              link: '/marketplace/codeassist-ai'
             }
           ].map(({ tag, title, desc, link }) => (
             <div key={title} className="bg-gray-900 border border-gray-800 rounded-xl p-6">
@@ -81,7 +83,7 @@ export default function Home() {
           ))}
         </div>
         <div className="text-center mt-10">
-          <a href="/solutions" className="bg-white text-black font-semibold px-6 py-3 rounded hover:bg-gray-200">View All Solutions</a>
+          <a href="/marketplace" className="bg-white text-black font-semibold px-6 py-3 rounded hover:bg-gray-200">View All Marketplace Tools</a>
         </div>
       </section>
 
@@ -124,7 +126,7 @@ export default function Home() {
           Join thousands of businesses and developers who are leveraging Ekam’s AI solutions to innovate and grow.
         </p>
         <div className="flex justify-center gap-4">
-          <a href="/solutions" className="bg-white text-black font-semibold px-6 py-3 rounded hover:bg-gray-200">Explore Solutions</a>
+          <a href="/marketplace" className="bg-white text-black font-semibold px-6 py-3 rounded hover:bg-gray-200">Explore Marketplace</a>
           <a href="/signup" className="border border-white text-white font-semibold px-6 py-3 rounded hover:bg-gray-800">Sign Up Free</a>
         </div>
       </section>
