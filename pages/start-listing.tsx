@@ -13,42 +13,76 @@ export default function StartListingPage() {
     e.preventDefault();
     const data = new FormData(formRef.current!);
     console.log("Listing Submitted:", Object.fromEntries(data.entries()));
-    // TODO:-- send to Supabase or backend
+    // TODO: send to Supabase or backend
   };
 
   return (
-    <div className="min-h-screen px-4 py-20 bg-white text-black max-w-2xl mx-auto">
+    <div className="min-h-screen px-4 py-20 bg-[#0b1120] text-white max-w-2xl mx-auto">
       <h1 className="text-4xl font-bold mb-4 text-center">Start Listing Your AI Tool</h1>
-      <p className="text-lg text-center mb-8">
+      <p className="text-lg text-center text-gray-400 mb-10">
         Submit your AI model, API, or tool to the Ekam marketplace and get discovered by businesses and researchers.
       </p>
 
       <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
         <div>
           <Label htmlFor="name">Your Name</Label>
-          <Input id="name" name="name" placeholder="e.g. Annie Simpson" required />
+          <Input
+            id="name"
+            name="name"
+            placeholder="e.g. Annie Simpson"
+            className="bg-transparent border border-white text-white placeholder-white"
+            required
+          />
         </div>
         <div>
           <Label htmlFor="email">Email</Label>
-          <Input id="email" name="email" type="email" placeholder="e.g. annie@ekam.ai" required />
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="e.g. annie@ekam.ai"
+            className="bg-transparent border border-white text-white placeholder-white"
+            required
+          />
         </div>
         <div>
           <Label htmlFor="toolName">Tool Name</Label>
-          <Input id="toolName" name="toolName" placeholder="e.g. Sentiment Classifier API" required />
+          <Input
+            id="toolName"
+            name="toolName"
+            placeholder="e.g. Sentiment Classifier API"
+            className="bg-transparent border border-white text-white placeholder-white"
+            required
+          />
         </div>
         <div>
           <Label htmlFor="description">Description</Label>
-          <Textarea id="description" name="description" placeholder="What does your tool do?" required />
+          <Textarea
+            id="description"
+            name="description"
+            placeholder="What does your tool do?"
+            rows={5}
+            className="bg-transparent border border-white text-white placeholder-white"
+            required
+          />
         </div>
         <div>
           <Label htmlFor="link">Website or GitHub Link</Label>
-          <Input id="link" name="link" type="url" placeholder="https://github.com/your-repo" required />
+          <Input
+            id="link"
+            name="link"
+            type="url"
+            placeholder="https://github.com/your-repo"
+            className="bg-transparent border border-white text-white placeholder-white"
+            required
+          />
         </div>
 
-        <Button type="submit" className="w-full mt-4">
+        <Button type="submit" className="bg-white text-black hover:bg-gray-200 w-full mt-4">
           Submit Listing
         </Button>
       </form>
     </div>
   );
 }
+

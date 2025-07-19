@@ -2,19 +2,34 @@
 
 import { useRef } from 'react';
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 export default function ComponentsPage() {
   const formRef = useRef<HTMLFormElement>(null);
+  const hireFormRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const data = new FormData(formRef.current!);
-    console.log("Submitted:", Object.fromEntries(data.entries()));
-    // TODO: send to Supabase or backend
+    console.log("Waitlist Submitted:", Object.fromEntries(data.entries()));
+    // TODO: Send to Supabase or backend
+  };
+
+  const handleHireSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const data = new FormData(hireFormRef.current!);
+    console.log("Hire Request Submitted:", Object.fromEntries(data.entries()));
+    // TODO: Send to Supabase or backend
   };
 
   return (
@@ -26,11 +41,19 @@ export default function ComponentsPage() {
       </p>
 
       <div className="flex justify-center gap-4">
-        <a href="#hire" className="bg-white text-black font-semibold px-6 py-3 rounded shadow hover:bg-gray-200 transition">Hire AI Experts</a>
+        <a
+          href="#hire"
+          className="bg-white text-black font-semibold px-6 py-3 rounded shadow hover:bg-gray-200 transition"
+        >
+          Hire AI Experts
+        </a>
 
         <Dialog>
           <DialogTrigger asChild>
-            <Button variant="outline" className="text-white border-white hover:bg-white hover:text-black">
+            <Button
+              variant="outline"
+              className="text-white border-white hover:bg-white hover:text-black"
+            >
               Request Custom Tool
             </Button>
           </DialogTrigger>
@@ -42,20 +65,42 @@ export default function ComponentsPage() {
               </DialogDescription>
             </DialogHeader>
 
-            <form ref={formRef} onSubmit={handleSubmit} className="grid gap-4 py-4">
+            <form
+              ref={formRef}
+              onSubmit={handleSubmit}
+              className="grid gap-4 py-4"
+            >
               <div>
                 <Label htmlFor="name">Name</Label>
-                <Input name="name" placeholder="Your name" className="bg-white text-black" required />
+                <Input
+                  name="name"
+                  placeholder="Your name"
+                  className="bg-white text-black"
+                  required
+                />
               </div>
               <div>
                 <Label htmlFor="email">Email</Label>
-                <Input name="email" type="email" placeholder="you@email.com" className="bg-white text-black" required />
+                <Input
+                  name="email"
+                  type="email"
+                  placeholder="you@email.com"
+                  className="bg-white text-black"
+                  required
+                />
               </div>
               <div>
                 <Label htmlFor="idea">What do you need?</Label>
-                <Textarea name="idea" placeholder="Describe the AI tool you’re looking for" className="bg-white text-black" />
+                <Textarea
+                  name="idea"
+                  placeholder="Describe the AI tool you’re looking for"
+                  className="bg-white text-black"
+                />
               </div>
-              <Button type="submit" className="bg-white text-black hover:bg-gray-200">
+              <Button
+                type="submit"
+                className="bg-white text-black hover:bg-gray-200"
+              >
                 Join Waitlist
               </Button>
             </form>
@@ -63,13 +108,68 @@ export default function ComponentsPage() {
         </Dialog>
       </div>
 
-      {/* Optional scroll target */}
+      {/* HIRE REQUEST FORM SECTION */}
       <div id="hire" className="mt-32">
-        {/* Your existing hire form section */}
-        <h2 className="text-3xl font-bold mb-4">Hire Request Section</h2>
-        {/* ...existing form here... */}
+        <h2 className="text-3xl font-bold mb-6">Hire Request Section</h2>
+        <form
+          ref={hireFormRef}
+          onSubmit={handleHireSubmit}
+          className="max-w-xl mx-auto space-y-6"
+        >
+          <div>
+            <Label htmlFor="hireName">Your Name</Label>
+            <Input
+              name="hireName"
+              placeholder="e.g. Annie Simpson"
+              className="bg-transparent border border-white text-white placeholder-white"
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor="hireEmail">Email</Label>
+            <Input
+              name="hireEmail"
+              type="email"
+              placeholder="e.g. annie@ekam.ai"
+              className="bg-transparent border border-white text-white placeholder-white"
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor="project">Project Idea</Label>
+            <Input
+              name="project"
+              placeholder="e.g. Sentiment Classifier API"
+              className="bg-transparent border border-white text-white placeholder-white"
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor="description">What does your tool do?</Label>
+            <Textarea
+              name="description"
+              placeholder="Explain what the AI tool should do..."
+              rows={5}
+              className="bg-transparent border border-white text-white placeholder-white"
+            />
+          </div>
+          <div>
+            <Label htmlFor="repo">GitHub Repo (optional)</Label>
+            <Input
+              name="repo"
+              type="url"
+              placeholder="https://github.com/your-repo"
+              className="bg-transparent border border-white text-white placeholder-white"
+            />
+          </div>
+          <Button
+            type="submit"
+            className="bg-white text-black hover:bg-gray-200 w-full"
+          >
+            Submit Listing
+          </Button>
+        </form>
       </div>
     </div>
   );
 }
-

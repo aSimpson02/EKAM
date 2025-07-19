@@ -126,7 +126,7 @@ export default function Home() {
           Join thousands of businesses and developers who are leveraging Ekam’s AI solutions to innovate and grow.
         </p>
         <div className="flex justify-center gap-4">
-          <a href="/marketplace" className="bg-white text-black font-semibold px-6 py-3 rounded hover:bg-gray-200">Explore Marketplace</a>
+          {/* <a href="/marketplace" className="bg-white text-black font-semibold px-6 py-3 rounded hover:bg-gray-200">Explore Marketplace</a> */}
           <a href="/signup" className="border border-white text-white font-semibold px-6 py-3 rounded hover:bg-gray-800">Sign Up Free</a>
         </div>
       </section>
