@@ -1,11 +1,13 @@
 'use client';
 
+import Link from 'next/link';
+
 export default function Businesses() {
   return (
     <div className="min-h-screen bg-[#0b1120] text-white px-6 md:px-20 py-20">
       <h1 className="text-5xl font-bold mb-6">Solutions for Businesses</h1>
       <p className="text-gray-400 max-w-2xl mb-12">
-        Discover how Ekam's AI solutions can help your business automate workflows, improve customer experience, and unlock insights.
+        Discover how Ekam&apos;s AI solutions can help your business automate workflows, improve customer experience, and unlock insights.
       </p>
 
       <div className="grid md:grid-cols-2 gap-6 mb-16">
@@ -29,15 +31,13 @@ export default function Businesses() {
 
       {/* Explore Marketplace CTA */}
       <div className="text-center">
-        <a
-          href="/marketplace"
-          className="bg-white text-black font-semibold px-6 py-3 rounded hover:bg-gray-200 transition"
-        >
-          Explore Marketplace
-        </a>
+        <Link href="/marketplace">
+          <span className="bg-white text-black font-semibold px-6 py-3 rounded hover:bg-gray-200 transition inline-block">
+            Explore Marketplace
+          </span>
+        </Link>
       </div>
     </div>
   );
 }
-
 

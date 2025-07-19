@@ -10,7 +10,7 @@ export default function AboutPage() {
           Founded in 2025 by three friends turned partners and incorporated in the financial capital of the world—London. We bring you business consultancy for the 21st century. The world has rapidly evolved this past century and we need to evolve too. With the rapid growth of AI, many old-school businesses are struggling to keep up.
         </p>
         <p className="text-lg mt-4 leading-8 text-gray-300">
-          Hollywood has convinced us to fear the day robots take over—but what if we use this very innovation to become better? Rather than fearing change, what if we embrace it? Uniting tech and AI with businesses, we embody the true meaning of <span className="font-semibold italic text-white">'Ekam'</span>, the Sanskrit word for Unity.
+          Hollywood has convinced us to fear the day robots take over—but what if we use this very innovation to become better? Rather than fearing change, what if we embrace it? Uniting tech and AI with businesses, we embody the true meaning of <span className="font-semibold italic text-white">&apos;Ekam&apos;</span>, the Sanskrit word for Unity.
         </p>
       </section>
 
@@ -60,7 +60,7 @@ export default function AboutPage() {
             <h3 className="text-xl font-bold">Annabel Simpson</h3>
             <p className="font-semibold text-gray-300">The Tech and AI Wiz</p>
             <p className="text-gray-400">
-              An AI and tech graduate from Imperial College London, she uses her vast knowledge of the AI and tech world to enhance a firm's processes.
+              An AI and tech graduate from Imperial College London, she uses her vast knowledge of the AI and tech world to enhance a firm&apos;s processes.
             </p>
           </div>
         </div>
