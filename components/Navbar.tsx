@@ -10,7 +10,7 @@ export default function Navbar() {
   const { totalItems } = useCart();
 
   return (
-    <nav className="bg-[#1C2B41] text-white px-6 py-4 flex flex-wrap justify-between items-center border-b border-gray-800">
+    <nav className="bg-[#1C2B41] text-white px-6 py-5 flex flex-wrap justify-between items-center border-b border-gray-800">
       {/* Left navigation */}
       <div className="flex gap-6 flex-wrap items-center">
         {/* Logo */}
@@ -31,12 +31,13 @@ export default function Navbar() {
         <Link href="/developers" className="hover:underline">For Developers</Link>
         <Link href="/business" className="hover:underline">For Businesses</Link>
         <Link href="/components" className="hover:underline">Components</Link>
-        {/* <Link href="/solutions" className="hover:underline">Solutions</Link>
-        <Link href="/start-listing" className="hover:underline">Start Listing</Link> */}
       </div>
 
       {/* Right navigation */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-6">
+        {/* Location */}
+        <span className="text-sm text-gray-400 hidden md:inline">📍 Based in Hong Kong</span>
+
         {/* Cart icon with badge */}
         <Link href="/checkout" className="relative hover:underline text-xl">
           🛒

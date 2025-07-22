@@ -17,21 +17,24 @@ export default function Home() {
   return (
     <div className="bg-[#0b1120] text-white min-h-screen">
       {/* Hero Section */}
-      <section className="px-6 md:px-20 py-24 text-center">
-        <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-4">
-          Discover the Future<br /> of AI Solutions
-        </h1>
-        <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-8">
-          Ekam brings cutting-edge AI tools and solutions to transform your business. Explore our marketplace of curated AI solutions designed for developers and businesses alike.
-        </p>
-        <div className="flex justify-center gap-4">
-          <a href="/marketplace" className="bg-white text-black font-semibold px-6 py-3 rounded hover:bg-gray-200">Browse AI Tools</a>
-          <a href="/signup" className="border border-white text-white font-semibold px-6 py-3 rounded hover:bg-gray-800">Get Started Free</a>
+      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden px-6 md:px-20 bg-[#0b1120]">
+        <div className="absolute inset-0 z-0 blur-3xl opacity-50" style={{ background: "radial-gradient(ellipse at center, #007cf0, #00dfd8)" }} />
+        <div className="z-10 text-center max-w-3xl">
+          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+            Custom AI Solutions<br /> for Bold Businesses
+          </h1>
+          <p className="text-gray-300 text-lg md:text-xl mb-10">
+            Ekam delivers tailored AI tools to help businesses scale smarter, faster, and more creatively.
+          </p>
+          <div className="flex justify-center gap-4">
+            <a href="/marketplace" className="bg-white text-black font-semibold px-6 py-3 rounded-full hover:bg-gray-200">Browse AI Tools</a>
+            <a href="/signup" className="border border-white text-white font-semibold px-6 py-3 rounded-full hover:bg-gray-800">Get Started</a>
+          </div>
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="bg-[#0d1528] px-6 md:px-20 py-20">
+      <section className="bg-[#0d1528] px-6 md:px-20 py-32">
         <h2 className="text-4xl font-bold text-center mb-12">Why Choose Ekam</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {[
@@ -51,7 +54,7 @@ export default function Home() {
       </section>
 
       {/* Featured Solutions */}
-      <section className="px-6 md:px-20 py-20">
+      <section className="px-6 md:px-20 py-32">
         <h2 className="text-4xl font-bold text-center mb-12">Featured Marketplace Tools</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {[
@@ -82,52 +85,19 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <div className="text-center mt-10">
-          <a href="/marketplace" className="bg-white text-black font-semibold px-6 py-3 rounded hover:bg-gray-200">View All Marketplace Tools</a>
+        <div className="text-center mt-16">
+          <a href="/marketplace" className="bg-white text-black font-semibold px-6 py-3 rounded-full hover:bg-gray-200">View All Marketplace Tools</a>
         </div>
       </section>
 
-      {/* Testimonials
-      <section className="bg-[#0d1528] px-6 md:px-20 py-20">
-        <h2 className="text-4xl font-bold text-center mb-12">What Our Clients Say</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            {
-              name: 'Sarah Johnson',
-              role: 'Marketing Director, TechGrowth Inc.',
-              quote: 'Ekam’s AI tools have revolutionized our content creation process, reducing time-to-market by 60%.'
-            },
-            {
-              name: 'Michael Chen',
-              role: 'Lead Developer, InnovateSoft',
-              quote: 'As a developer, I appreciate the well-documented APIs and the robust community support around Ekam’s solutions.'
-            },
-            {
-              name: 'Dr. Emily Rodriguez',
-              role: 'Chief Medical Officer, HealthFirst Network',
-              quote: 'The healthcare AI solutions from Ekam have significantly improved our diagnostic accuracy and patient outcomes.'
-            },
-          ].map(({ name, role, quote }) => (
-            <div key={name} className="bg-[#111827] border border-[#1f2937] p-6 rounded-xl">
-              <p className="italic text-gray-300 mb-4">"{quote}"</p>
-              <div className="text-sm text-gray-400">
-                <strong className="text-white block">{name}</strong>
-                {role}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section> */}
-
       {/* CTA */}
-      <section className="px-6 md:px-20 py-20 text-center">
+      <section className="px-6 md:px-20 py-32 text-center">
         <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Business with AI?</h2>
         <p className="text-gray-400 mb-8">
           Join thousands of businesses and developers who are leveraging Ekam’s AI solutions to innovate and grow.
         </p>
         <div className="flex justify-center gap-4">
-          {/* <a href="/marketplace" className="bg-white text-black font-semibold px-6 py-3 rounded hover:bg-gray-200">Explore Marketplace</a> */}
-          <a href="/signup" className="border border-white text-white font-semibold px-6 py-3 rounded hover:bg-gray-800">Sign Up Free</a>
+          <a href="/signup" className="border border-white text-white font-semibold px-6 py-3 rounded-full hover:bg-gray-800">Sign Up Free</a>
         </div>
       </section>
     </div>
