@@ -7,10 +7,11 @@ export default function AboutPage() {
       <section className="max-w-4xl mx-auto text-center mb-16">
         <h1 className="text-4xl font-bold mb-6">About Us</h1>
         <p className="text-lg leading-8 text-gray-300">
-          Founded in 2025 by three friends turned partners and incorporated in the global innovation hub Hong Kong. We bring you business consultancy for the 21st century. The world has rapidly evolved this past century and we need to evolve too. With the rapid growth of AI, many old-school businesses are struggling to keep up.
+          Founded in 2025 and incorporated in Hong Kong—one of the world’s foremost financial hubs—Ekam AI Consultancy is redefining business consultancy for the 21st century. As industries face the accelerating pace of change driven by artificial intelligence, many traditional businesses are struggling to keep up. Rather than fearing disruption, we believe in harnessing it. At Ekam, we help organizations embrace AI as a force for progress—using innovation not to replace human potential, but to elevate it.
+
         </p>
         <p className="text-lg mt-4 leading-8 text-gray-300">
-          Hollywood has convinced us to fear the day robots take over—but what if we use this very innovation to become better? Rather than fearing change, what if we embrace it? Uniting tech and AI with businesses, we embody the true meaning of <span className="font-semibold italic text-white">&apos;Ekam&apos;</span>, the Sanskrit word for Unity.
+          Our name, Ekam—a Sanskrit word meaning Unity—reflects our mission: to unite technology and business in a way that creates lasting value, transformation, and sustainable growth.
         </p>
       </section>
 
@@ -39,7 +40,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Dhushyant */}
           <div className="border border-white rounded-lg p-6 text-center space-y-3">
-            <h3 className="text-xl font-bold">Dhushyant</h3>
+            <h3 className="text-xl font-bold">Princess Jayapalashri Anil Urs of Mysore</h3>
             <p className="font-semibold text-gray-300">Business, Organisational Structure</p>
             <p className="text-gray-400">
               A Business Management student at Hult University London, passionate about the functioning and procedures behind an enterprise.
