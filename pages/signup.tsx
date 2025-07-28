@@ -14,7 +14,7 @@ export default function SignupPage() {
     setError('');
     setSuccessMsg('');
 
-    const { data, error } = await supabase.auth.signUp({ email, password });
+    const { error } = await supabase.auth.signUp({ email, password });
 
     if (error) {
       setError(error.message);
@@ -25,14 +25,12 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-[#0b1120] via-[#111827] to-[#0f172a] text-white">
+    <div className="min-h-screen w-full bg-gradient-to-br from-[#0b1120] via-[#0f172a] to-[#1a1f3b] text-white flex items-center justify-center px-4">
       <form
         onSubmit={handleSignup}
-        className="bg-[#111827] bg-gradient-to-br from-[#111827]/70 to-[#1f2937]/80 p-8 rounded-2xl w-full max-w-sm border border-gray-700 shadow-lg backdrop-blur"
+        className="bg-[#111827]/60 backdrop-blur-md p-8 rounded-2xl w-full max-w-sm border border-white/10 shadow-xl"
       >
-        <h1 className="text-3xl font-bold mb-4 text-center bg-gradient-to-r from-white via-gray-300 to-white text-transparent bg-clip-text">
-          Sign Up
-        </h1>
+        <h1 className="text-3xl font-bold mb-4 text-center text-white">Sign Up</h1>
         <p className="text-gray-400 text-sm text-center mb-6">
           Create your EKAM account below.
         </p>
@@ -59,7 +57,7 @@ export default function SignupPage() {
 
         <button
           type="submit"
-          className="w-full py-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold rounded-full shadow-md hover:from-indigo-600 hover:to-pink-600 transition"
+          className="w-full py-3 bg-white text-black font-semibold rounded-md hover:bg-gray-200 transition"
         >
           Create Account
         </button>

@@ -33,7 +33,7 @@ export default function ComponentsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0b1120] via-[#111827] to-[#0f172a] text-white px-4 py-20 text-center">
+    <div className="min-h-screen bg-gradient-to-br from-[#0b1120] via-[#0f172a] to-[#1a1f3b] text-white px-4 py-20 text-center">
       <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">
         Ekam Components Hub
       </h1>
@@ -45,7 +45,7 @@ export default function ComponentsPage() {
       <div className="flex justify-center gap-4">
         <a
           href="#hire"
-          className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold px-6 py-3 rounded-full shadow-md hover:from-indigo-600 hover:to-pink-600 transition"
+          className="bg-white text-black font-semibold px-6 py-3 rounded-md hover:bg-gray-200 transition"
         >
           Hire AI Experts
         </a>
@@ -59,7 +59,7 @@ export default function ComponentsPage() {
               Request Custom Tool
             </Button>
           </DialogTrigger>
-          <DialogContent className="bg-[#0b1120] text-white border border-white rounded-xl">
+          <DialogContent className="bg-[#111827]/60 backdrop-blur-md text-white border border-white/10 rounded-xl shadow-xl">
             <DialogHeader>
               <DialogTitle className="text-2xl font-bold mb-2">Join the Waitlist</DialogTitle>
               <DialogDescription className="text-gray-400 mb-4">
@@ -68,22 +68,25 @@ export default function ComponentsPage() {
             </DialogHeader>
 
             <form ref={formRef} onSubmit={handleSubmit} className="grid gap-5 py-4">
-              {[
-                { id: "name", placeholder: "Your name", type: "text" },
-                { id: "email", placeholder: "you@email.com", type: "email" },
-              ].map(({ id, placeholder, type }) => (
-                <div key={id}>
-                  <Label htmlFor={id}>{id.charAt(0).toUpperCase() + id.slice(1)}</Label>
-                  <Input
-                    name={id}
-                    type={type}
-                    placeholder={placeholder}
-                    className="bg-transparent border border-white text-white placeholder-white rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none transition"
-                    required
-                  />
-                </div>
-              ))}
-
+              <div>
+                <Label htmlFor="name">Name</Label>
+                <Input
+                  name="name"
+                  placeholder="Your name"
+                  className="bg-transparent border border-white text-white placeholder-white rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none transition"
+                  required
+                />
+              </div>
+              <div>
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  name="email"
+                  type="email"
+                  placeholder="you@email.com"
+                  className="bg-transparent border border-white text-white placeholder-white rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none transition"
+                  required
+                />
+              </div>
               <div>
                 <Label htmlFor="idea">What do you need?</Label>
                 <Textarea
@@ -92,10 +95,9 @@ export default function ComponentsPage() {
                   className="bg-transparent border border-white text-white placeholder-white rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none transition"
                 />
               </div>
-
               <Button
                 type="submit"
-                className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white py-3 rounded-full shadow-md hover:from-indigo-600 hover:to-pink-600 transition"
+                className="bg-white text-black hover:bg-gray-200 rounded-md transition"
               >
                 Join Waitlist
               </Button>
@@ -110,47 +112,56 @@ export default function ComponentsPage() {
           Hire Request Section
         </h2>
 
-        <form ref={hireFormRef} onSubmit={handleHireSubmit} className="max-w-xl mx-auto space-y-6">
-          {[
-            { id: "hireName", label: "Your Name", placeholder: "e.g. Annie Simpson", type: "text" },
-            { id: "hireEmail", label: "Email", placeholder: "e.g. annie@ekam.ai", type: "email" },
-            { id: "project", label: "Project Idea", placeholder: "e.g. Sentiment Classifier API", type: "text" },
-            {
-              id: "description",
-              label: "What does your tool do?",
-              component: "textarea",
-              placeholder: "Explain what the AI tool should do...",
-            },
-            {
-              id: "repo",
-              label: "GitHub Repo (optional)",
-              placeholder: "https://github.com/your-repo",
-              type: "url",
-            },
-          ].map(({ id, label, placeholder, type = "text", component }) => (
-            <div key={id}>
-              <Label htmlFor={id}>{label}</Label>
-              {component === "textarea" ? (
-                <Textarea
-                  name={id}
-                  placeholder={placeholder}
-                  rows={5}
-                  className="bg-transparent border border-white text-white placeholder-white rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none transition"
-                />
-              ) : (
-                <Input
-                  name={id}
-                  type={type}
-                  placeholder={placeholder}
-                  className="bg-transparent border border-white text-white placeholder-white rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none transition"
-                />
-              )}
-            </div>
-          ))}
-
+        <form ref={hireFormRef} onSubmit={handleHireSubmit} className="max-w-xl mx-auto space-y-6 bg-[#111827]/60 backdrop-blur-md p-8 rounded-2xl border border-white/10 shadow-xl">
+          <div>
+            <Label htmlFor="hireName">Your Name</Label>
+            <Input
+              name="hireName"
+              placeholder="e.g. Annie Simpson"
+              className="bg-transparent border border-white text-white placeholder-white rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none transition"
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor="hireEmail">Email</Label>
+            <Input
+              name="hireEmail"
+              type="email"
+              placeholder="e.g. annie@ekam.ai"
+              className="bg-transparent border border-white text-white placeholder-white rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none transition"
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor="project">Project Idea</Label>
+            <Input
+              name="project"
+              placeholder="e.g. Sentiment Classifier API"
+              className="bg-transparent border border-white text-white placeholder-white rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none transition"
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor="description">What does your tool do?</Label>
+            <Textarea
+              name="description"
+              placeholder="Explain what the AI tool should do..."
+              rows={5}
+              className="bg-transparent border border-white text-white placeholder-white rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none transition"
+            />
+          </div>
+          <div>
+            <Label htmlFor="repo">GitHub Repo (optional)</Label>
+            <Input
+              name="repo"
+              type="url"
+              placeholder="https://github.com/your-repo"
+              className="bg-transparent border border-white text-white placeholder-white rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none transition"
+            />
+          </div>
           <Button
             type="submit"
-            className="w-full py-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold rounded-full shadow-md hover:from-indigo-600 hover:to-pink-600 transition"
+            className="w-full py-3 bg-white text-black font-semibold rounded-md hover:bg-gray-200 transition"
           >
             Submit Listing
           </Button>
