@@ -17,44 +17,34 @@ export default function StartListingPage() {
   };
 
   return (
-    <div className="min-h-screen px-4 py-20 bg-[#0b1120] text-white max-w-2xl mx-auto">
-      <h1 className="text-4xl font-bold mb-4 text-center">Start Listing Your AI Tool</h1>
+    <div className="min-h-screen px-4 py-20 bg-gradient-to-br from-[#0b1120] via-[#111827] to-[#0f172a] text-white max-w-2xl mx-auto">
+      <h1 className="text-4xl font-bold mb-4 text-center bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">
+        Start Listing Your AI Tool
+      </h1>
       <p className="text-lg text-center text-gray-400 mb-10">
         Submit your AI model, API, or tool to the Ekam marketplace and get discovered by businesses and researchers.
       </p>
 
       <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-        <div>
-          <Label htmlFor="name">Your Name</Label>
-          <Input
-            id="name"
-            name="name"
-            placeholder="e.g. Annie Simpson"
-            className="bg-transparent border border-white text-white placeholder-white"
-            required
-          />
-        </div>
-        <div>
-          <Label htmlFor="email">Email</Label>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="e.g. annie@ekam.ai"
-            className="bg-transparent border border-white text-white placeholder-white"
-            required
-          />
-        </div>
-        <div>
-          <Label htmlFor="toolName">Tool Name</Label>
-          <Input
-            id="toolName"
-            name="toolName"
-            placeholder="e.g. Sentiment Classifier API"
-            className="bg-transparent border border-white text-white placeholder-white"
-            required
-          />
-        </div>
+        {[
+          { id: "name", label: "Your Name", placeholder: "e.g. Annie Simpson" },
+          { id: "email", label: "Email", placeholder: "e.g. annie@ekam.ai", type: "email" },
+          { id: "toolName", label: "Tool Name", placeholder: "e.g. Sentiment Classifier API" },
+          { id: "link", label: "Website or GitHub Link", placeholder: "https://github.com/your-repo", type: "url" },
+        ].map(({ id, label, placeholder, type = "text" }) => (
+          <div key={id}>
+            <Label htmlFor={id}>{label}</Label>
+            <Input
+              id={id}
+              name={id}
+              type={type}
+              placeholder={placeholder}
+              className="bg-transparent border border-white text-white placeholder-white rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+              required
+            />
+          </div>
+        ))}
+
         <div>
           <Label htmlFor="description">Description</Label>
           <Textarea
@@ -62,23 +52,15 @@ export default function StartListingPage() {
             name="description"
             placeholder="What does your tool do?"
             rows={5}
-            className="bg-transparent border border-white text-white placeholder-white"
-            required
-          />
-        </div>
-        <div>
-          <Label htmlFor="link">Website or GitHub Link</Label>
-          <Input
-            id="link"
-            name="link"
-            type="url"
-            placeholder="https://github.com/your-repo"
-            className="bg-transparent border border-white text-white placeholder-white"
+            className="bg-transparent border border-white text-white placeholder-white rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
             required
           />
         </div>
 
-        <Button type="submit" className="bg-white text-black hover:bg-gray-200 w-full mt-4">
+        <Button
+          type="submit"
+          className="w-full mt-6 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold py-3 rounded-full shadow-lg hover:from-indigo-600 hover:to-pink-600 transition"
+        >
           Submit Listing
         </Button>
       </form>
