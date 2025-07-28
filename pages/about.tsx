@@ -43,7 +43,7 @@ export default function AboutPage() {
             <h3 className="text-xl font-bold">Princess Jayapalashri Anil Urs of Mysore</h3>
             <p className="font-semibold text-gray-300">Business, Organisational Structure</p>
             <p className="text-gray-400">
-              A Business Management student at Hult University London, passionate about the functioning and procedures behind an enterprise.
+              Granddaughter of the late Maharaja Jayachamaraja Wadiyar, Princess Jayapalashri Anil is a distinguished philanthropist, accomplished businesswoman, and author. She currently serves as a director of two prominent manufacturing firms in India. With a unique blend of royal heritage and entrepreneurial acumen, she brings a wealth of insight, leadership, and global perspective to Ekam. Her presence embodies the seamless fusion of tradition and innovation — a true testament to business with a regal touch.
             </p>
           </div>
 
