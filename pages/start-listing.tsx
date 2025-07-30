@@ -18,7 +18,7 @@ export default function StartListingPage() {
   };
 
   return (
-    <div className="min-h-screen px-4 py-20 w-full bg-gradient-to-br from-[#09142a] via-[#132348] to-[#1e3361] text-white flex items-center justify-center">
+    <div className="min-h-screen px-4 py-20 w-full bg-gradient-to-br from-[#1D2B41] via-[#125C83] to-[#5271A2] text-white flex items-center justify-center">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -91,7 +91,7 @@ export default function StartListingPage() {
           >
             <Button
               type="submit"
-              className="bg-white text-black hover:bg-gray-200 w-full mt-4 font-semibold py-3 rounded-md transition"
+              className="w-full mt-4 font-semibold py-3 rounded-md border border-white text-white hover:bg-white hover:text-black transition"
             >
               Submit Listing
             </Button>

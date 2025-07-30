@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { supabase } from '../lib/supabaseClient';
 import { useRouter } from 'next/router';
@@ -20,7 +22,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-[#0b1120] via-[#0f172a] to-[#1a1f3b] text-white flex items-center justify-center px-4">
+    <div className="min-h-screen w-full bg-gradient-to-br from-[#1D2B41] via-[#125C83] to-[#5271A2] text-white flex items-center justify-center px-4">
       <form
         onSubmit={handleLogin}
         className="bg-[#111827]/60 backdrop-blur-md p-8 rounded-2xl w-full max-w-sm border border-white/10 shadow-xl"
@@ -51,7 +53,7 @@ export default function LoginPage() {
 
         <button
           type="submit"
-          className="w-full py-3 bg-white text-black font-semibold rounded-md hover:bg-gray-200 transition"
+          className="w-full py-3 border border-white text-white font-semibold rounded-md hover:bg-white hover:text-black transition"
         >
           Log In
         </button>
