@@ -28,14 +28,9 @@ export default function SignupPage() {
 
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-[#1D2B41] via-[#125C83] to-[#5271A2] text-white flex items-center justify-center px-4">
-      <form
-        onSubmit={handleSignup}
-        className="bg-[#111827]/60 backdrop-blur-md p-8 rounded-2xl w-full max-w-sm border border-white/10 shadow-xl"
-      >
+      <form onSubmit={handleSignup} className="bg-[#111827]/60 backdrop-blur-md p-8 rounded-2xl w-full max-w-sm border border-white/10 shadow-xl">
         <h1 className="text-3xl font-bold mb-4 text-center text-white">Sign Up</h1>
-        <p className="text-gray-400 text-sm text-center mb-6">
-          Create your EKAM account below.
-        </p>
+        <p className="text-gray-400 text-sm text-center mb-6">Create your EKAM account below.</p>
 
         {error && <p className="text-red-500 text-sm mb-4 text-center">{error}</p>}
         {successMsg && <p className="text-green-400 text-sm mb-4 text-center">{successMsg}</p>}
@@ -57,10 +52,7 @@ export default function SignupPage() {
           required
         />
 
-        <button
-          type="submit"
-          className="w-full py-3 border border-white text-white font-semibold rounded-md hover:bg-white hover:text-black transition"
-        >
+        <button type="submit" className="w-full py-3 border border-white text-white font-semibold rounded-md hover:bg-white hover:text-black transition">
           Create Account
         </button>
 

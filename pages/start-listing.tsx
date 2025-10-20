@@ -1,20 +1,47 @@
 'use client';
 
-import { useRef } from 'react';
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
+import { useRef, useState } from 'react';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { supabase } from '@/lib/supabaseClient';
 
 export default function StartListingPage() {
   const formRef = useRef<HTMLFormElement>(null);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const data = new FormData(formRef.current!);
-    console.log("Listing Submitted:", Object.fromEntries(data.entries()));
-    // TODO: send to Supabase or backend
+    if (!formRef.current) return;
+
+    const data = new FormData(formRef.current);
+    const payload = {
+      submitter_name: String(data.get('name') || '').trim(),
+      submitter_email: String(data.get('email') || '').trim(),
+      tool_name: String(data.get('toolName') || '').trim(),
+      link: (String(data.get('link') || '').trim() || null) as string | null,
+      description: String(data.get('description') || '').trim(),
+    };
+
+    if (!payload.submitter_name || !payload.submitter_email || !payload.tool_name || !payload.description) {
+      alert('Please complete all required fields.');
+      return;
+    }
+
+    setSubmitting(true);
+    const { error } = await supabase.from('tool_listings').insert(payload);
+    setSubmitting(false);
+
+    if (error) {
+      console.error(error);
+      alert(`Failed to submit: ${error.message}`);
+      return;
+    }
+
+    alert('Listing submitted ');
+    formRef.current.reset();
   };
 
   return (
@@ -45,17 +72,12 @@ export default function StartListingPage() {
 
         <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
           {[
-            { id: "name", label: "Your Name", placeholder: "e.g. Annie Simpson" },
-            { id: "email", label: "Email", type: "email", placeholder: "e.g. annie@ekam.ai" },
-            { id: "toolName", label: "Tool Name", placeholder: "e.g. Sentiment Classifier API" },
-            { id: "link", label: "Website or GitHub Link", type: "url", placeholder: "https://github.com/your-repo" },
-          ].map(({ id, label, placeholder, type = "text" }, index) => (
-            <motion.div
-              key={id}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 + index * 0.1 }}
-            >
+            { id: 'name', label: 'Your Name', placeholder: 'e.g. Annie Simpson' },
+            { id: 'email', label: 'Email', type: 'email', placeholder: 'e.g. annie@ekam.ai' },
+            { id: 'toolName', label: 'Tool Name', placeholder: 'e.g. Sentiment Classifier API' },
+            { id: 'link', label: 'Website or GitHub Link', type: 'url', placeholder: 'https://github.com/your-repo' },
+          ].map(({ id, label, placeholder, type = 'text' }, index) => (
+            <motion.div key={id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 + index * 0.1 }}>
               <Label htmlFor={id}>{label}</Label>
               <Input
                 id={id}
@@ -68,11 +90,7 @@ export default function StartListingPage() {
             </motion.div>
           ))}
 
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9 }}>
             <Label htmlFor="description">Description</Label>
             <Textarea
               id="description"
@@ -84,16 +102,13 @@ export default function StartListingPage() {
             />
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.1 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1 }}>
             <Button
               type="submit"
+              disabled={submitting}
               className="w-full mt-4 font-semibold py-3 rounded-md border border-white text-white hover:bg-white hover:text-black transition"
             >
-              Submit Listing
+              {submitting ? 'Submitting…' : 'Submit Listing'}
             </Button>
           </motion.div>
         </form>
