@@ -1,9 +1,10 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
+
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { CartProvider } from "@/contexts/CartContext";
-import BottomTabNav from "@/components/BottomTabNav";
 
 export default function App({
   Component,
@@ -14,13 +15,13 @@ export default function App({
       <CartProvider>
         <div className="min-h-screen bg-[#0b1120] text-white">
           <Navbar />
-          <main className="min-h-[calc(100vh-64px)] pb-[92px]">
+          <main>
             <Component {...pageProps} />
           </main>
-
-          <BottomTabNav />
+          <Footer />
         </div>
       </CartProvider>
     </SessionProvider>
   );
 }
+
