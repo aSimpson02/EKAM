@@ -15,13 +15,14 @@ export default function App({
       <CartProvider>
         <div className="min-h-screen bg-[#0b1120] text-white">
           <Navbar />
+
           <main>
             <Component {...pageProps} />
           </main>
+
           <Footer />
         </div>
       </CartProvider>
     </SessionProvider>
   );
 }
-

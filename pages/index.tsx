@@ -100,7 +100,7 @@ export default function HomePage() {
               Built for teams shipping real AI
             </h3>
             <p className="mt-2 text-sm text-white/70">
-              Browse tools, hire talent, and move from idea → deployment faster.
+              Browse tools, hire talent, and move from idea to deployment faster.
             </p>
           </div>
 
